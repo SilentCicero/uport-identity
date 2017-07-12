@@ -3,4 +3,5 @@ node_modules
 notes.txt
 .DS_Store
 seed
+coverage.json
 TestRegistry.json
