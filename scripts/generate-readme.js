@@ -11,7 +11,7 @@ const README = 'README.md'
 let outStream = fs.createWriteStream(__dirname + '/../' + README)
 
 // get coverage
-exec('grep -m 1 -o ">.\\{1,5\\}%" ./coverage/index.html', (error, stdout, stderr) => {
+exec('grep -m 1 -o ">.\\{1,5\\}%" ./docs/coverage/index.html', (error, stdout, stderr) => {
   var coverage = stdout.slice(1).replace('\n', '')
 
   let lines = readline.createInterface({
@@ -19,7 +19,7 @@ exec('grep -m 1 -o ">.\\{1,5\\}%" ./coverage/index.html', (error, stdout, stderr
   })
   lines.on('line', line => {
     if (line === '<coverage>') {
-      outStream.write('[![solidity-coverage](https://img.shields.io/badge/coverage-' + coverage + '25-green.svg)]()\n\n')
+      outStream.write('[![solidity-coverage](https://img.shields.io/badge/coverage-' + coverage + '25-green.svg)](https://uport-project.github.io/uport-identity/coverage)\n\n')
     } else if (line === '<contract-deployments>') {
       outStream.write('## Contract Deployments\n')
       outStream.write('### Mainnet (id: 1)\n')
